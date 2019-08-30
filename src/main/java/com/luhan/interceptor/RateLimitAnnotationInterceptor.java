@@ -1,4 +1,4 @@
-package com.luhan.Filter;
+package com.luhan.interceptor;
 
 import com.google.common.util.concurrent.RateLimiter;
 import com.luhan.enums.RateLimit;
@@ -40,7 +40,7 @@ public class RateLimitAnnotationInterceptor {
     public void serviceLimit() {
     }
 
-    @Before("serviceLimit()")
+    @Around("serviceLimit()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         Object obj = null;
         //获取拦截的方法名
