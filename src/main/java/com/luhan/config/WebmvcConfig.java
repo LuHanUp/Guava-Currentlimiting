@@ -1,6 +1,6 @@
 package com.luhan.config;
 
-import com.luhan.interceptor.CurrentLimitingInterceptor;
+import com.luhan.interceptor.impl.CurrentLimitingInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;

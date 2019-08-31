@@ -1,10 +1,6 @@
 package com.luhan.filter;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
@@ -20,9 +16,8 @@ import java.io.IOException;
 @Configuration
 public class CorsHanlderFilter implements Filter{
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {}
 
-    }
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
@@ -34,7 +29,5 @@ public class CorsHanlderFilter implements Filter{
     }
 
     @Override
-    public void destroy() {
-
-    }
+    public void destroy() {}
 }
