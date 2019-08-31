@@ -32,8 +32,6 @@ import java.util.concurrent.ConcurrentHashMap;
 @Aspect
 public class RateLimitAnnotationInterceptor {
     private static final Map<String, RateLimiter> cacheRateLimit = new ConcurrentHashMap<>();
-    @Autowired
-    private HttpServletResponse response;
 
     @Pointcut("@annotation(com.luhan.annotation.RateLimit)")
     public void serviceLimit() {
