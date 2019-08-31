@@ -1,4 +1,6 @@
-package com.luhan.enums;
+package com.luhan.annotation;
+
+import java.lang.annotation.*;
 
 /**
  * 〈RateLimit的注解类,可以指定方法限流〉<br>
@@ -7,6 +9,9 @@ package com.luhan.enums;
  * @create 2019-08-29 19:32
  * @since 1.0.0
  */
+@Target(value = ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
 public @interface RateLimit {
     /**
      * 默认每秒10个

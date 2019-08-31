@@ -1,12 +1,11 @@
-package com.luhan.interceptor;
+package com.luhan.interceptor.impl;
 
 import com.google.common.util.concurrent.RateLimiter;
-import com.luhan.enums.RateLimit;
+import com.luhan.annotation.RateLimit;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +35,7 @@ public class RateLimitAnnotationInterceptor {
     @Autowired
     private HttpServletResponse response;
 
-    @Pointcut("@annotation(com.luhan.enums.RateLimit)")
+    @Pointcut("@annotation(com.luhan.annotation.RateLimit)")
     public void serviceLimit() {
     }
 
@@ -75,19 +74,8 @@ public class RateLimitAnnotationInterceptor {
             obj = joinPoint.proceed();
         } else {
             //拒绝了请求（服务限流）
-            String result = "您被限流了";
-            outErrorResult(result);
+            return "您被限流了(使用的是@RateLimit注解进行限流)";
         }
         return obj;
-    }
-
-    //将结果返回
-    public void outErrorResult(String result) {
-        response.setContentType("application/json;charset=UTF-8");
-        try (ServletOutputStream outputStream = response.getOutputStream()) {
-            outputStream.write(result.getBytes("utf-8"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

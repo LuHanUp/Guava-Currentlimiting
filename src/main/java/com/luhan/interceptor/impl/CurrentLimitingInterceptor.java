@@ -1,7 +1,8 @@
-package com.luhan.interceptor;
+package com.luhan.interceptor.impl;
 
 import com.google.common.util.concurrent.RateLimiter;
 import com.luhan.enums.ReponseEnum;
+import com.luhan.interceptor.AbstractInterceptor;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  * @since 1.0.0
  */
 @Component("currentLimitingInterceptor")
-public class CurrentLimitingInterceptor extends AbstractInterceptor{
+public class CurrentLimitingInterceptor extends AbstractInterceptor {
     private static final RateLimiter RATE_LIMITER = RateLimiter.create(2);
     @Override
     protected ReponseEnum currentLimiting(HttpServletRequest request) {
