@@ -7,7 +7,7 @@
     <groupId>com.luhan</groupId>
     <artifactId>Guava-Currentlimiting</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <description>使用google guava实现API的限流</description>
+    <description>使用google guava实现API限流</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
