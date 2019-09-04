@@ -9,7 +9,7 @@ import java.lang.annotation.*;
  * @create 2019-08-29 19:32
  * @since 1.0.0
  */
-@Target(value = ElementType.METHOD)
+@Target(value = {ElementType.METHOD,ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface RateLimit {

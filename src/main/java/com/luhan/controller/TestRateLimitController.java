@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/testRateLimit")
+@RateLimit(value = 2)
 public class TestRateLimitController {
     @RequestMapping(value = "/test",produces = "text/html;charset=UTF-8")
-    @RateLimit(value = 2)
     public String testRateLimit(){
         return "访问成功";
     }

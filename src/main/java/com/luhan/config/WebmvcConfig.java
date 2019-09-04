@@ -19,8 +19,8 @@ import java.util.concurrent.TimeUnit;
  * @create 2019-08-29 18:27
  * @since 1.0.0
  */
-@EnableWebMvc
-@Configuration
+// @EnableWebMvc
+// @Configuration
 public class WebmvcConfig implements WebMvcConfigurer {
     @Autowired
     @Qualifier("currentLimitingInterceptor")
